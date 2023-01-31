@@ -1,0 +1,77 @@
+.container {
+    position: relative;
+    display: inline-block;
+    max-width: calc(100% - var(--spacing) * 2);
+    padding: 0 var(--spacing) var(--spacing);
+    text-transform: uppercase;
+    backdrop-filter: blur(0.1em) brightness(var(--backdrop-brightness));
+    z-index: 1;
+}
+
+@media (min-width: 682px) {
+    .container {
+        max-width: 670px;
+    }
+}
+
+.fullName {
+    display: block;
+    font-weight: var(--font-extra-light);
+    font-size: calc(4.05vw + 4.05vh);
+}
+
+@media (min-width: 682px) {
+    .fullName {
+        font-size: calc(3.15vw + 3.15vh);
+    }
+}
+
+.job {
+    display: block;
+    font-weight: var(--font-light);
+    font-size: calc(1.55vw + 1.55vh);
+}
+
+@media (min-width: 682px) {
+    .job {
+        font-size: calc(1.25vw + 1.25vh);
+    }
+}
+
+.separator {
+    display: none;
+    margin: 0 calc(var(--spacing) * 0.5);
+    font-weight: 400;
+}
+
+@media (min-width: 340px) {
+    .separator {
+        display: inline-block;
+    }
+}
+
+.jobName {
+    color: var(--color-cyan);
+}
+
+.jobType {
+    color: var(--color-white);
+}
+
+.jobLocation {
+    color: var(--color-magenta);
+}
+
+.jobName,
+.jobType,
+.jobLocation {
+    display: block;
+}
+
+@media (min-width: 320px) {
+    .jobName,
+    .jobType,
+    .jobLocation {
+        display: inline-block;
+    }
+}

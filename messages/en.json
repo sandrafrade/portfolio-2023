@@ -1,0 +1,50 @@
+{
+    "social": {
+        "linkedin": {
+            "name": "LinkedIn",
+            "url": "https://www.linkedin.com/in/sandrafrade/"
+        },
+        "github": {
+            "name": "Github",
+            "url": "https://github.com/sandrafrade"
+        },
+        "twitter": {
+            "name": "Twitter",
+            "url": "https://twitter.com/sandrafrade_"
+        }
+    },
+    "card": {
+        "fullName": "Sandra Frade",
+        "jobName": "Web Developer",
+        "jobType": "Freelance",
+        "jobLocation": "Paris"
+    },
+    "home": {
+        "seo": {
+            "title": "Sandra Frade | Web Developer · Freelance · Paris",
+            "description": "After working 6 years as a full stack developer, I now focus on front end development : Javascript, Typescript, React.js, D3.js, Three.js, Accessiblity"
+        }
+    },
+    "experience": {
+        "label": "Animation",
+        "description": "Waving cubes changing height over time, placed above a mirror ground",
+        "play": "Play",
+        "stop": "Stop",
+        "soundOn": "Sound on",
+        "soundOff": "Sound off"
+    },
+    "links": {
+        "title": "Social media links",
+        "external": "External link"
+    },
+    "error": {
+        "seo": {
+            "title": "Error",
+            "description": ""
+        },
+        "content": {
+            "title": "Error",
+            "home": "Back to the homepage"
+        }
+    }
+}
