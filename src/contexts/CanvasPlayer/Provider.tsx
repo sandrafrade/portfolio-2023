@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react'
-import {Player, PlayerOptions, Sampler, SamplerOptions} from 'tone'
+import {Player, PlayerOptions, Sampler, SamplerOptions, context} from 'tone'
 import CanvasPlayerContext, {defaultContext} from '@/contexts/CanvasPlayer/Context'
 
 export const CanvasPlayerProvider = ({
@@ -27,8 +27,12 @@ export const CanvasPlayerProvider = ({
         setIsAnimationPlaying(!isAnimationPlaying)
     }
 
-    const toggleSound = () => {
+    const toggleSound = async () => {
         setIsSoundPlaying(!isSoundPlaying)
+
+        if (context.state !== 'running') {
+            context.resume()
+        }
 
         if (samplerOptions && !sampler.current) {
             sampler.current = new Sampler(samplerOptions).toDestination()
