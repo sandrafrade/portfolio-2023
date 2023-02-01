@@ -18,7 +18,7 @@ export default function Actions () {
                 className={styles.button}
                 onClick={() => sound.toggle()}
             >
-                {sound.isPlaying ? t('soundOn') : t('soundOff')}
+                {sound.isPlaying ? t('soundOff') : t('soundOn')}
             </button>
         </div>
     )
