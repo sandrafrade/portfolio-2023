@@ -1,10 +1,10 @@
-import {PlayerOptions, SamplerOptions} from 'tone'
+import * as Tone from 'tone'
 
 /**
  * Player
  */
 
-export const playerOptions: Partial<PlayerOptions> = {
+export const playerOptions: Partial<Tone.PlayerOptions> = {
     url: '/sounds/loop.mp3',
     autostart: true,
     loop: true,
@@ -27,7 +27,7 @@ export const samplerUrls = {
     E4: 'E4.mp3',
 }
 
-export const samplerOptions: Partial<SamplerOptions> = {
+export const samplerOptions: Partial<Tone.SamplerOptions> = {
     baseUrl: '/sounds/sampler/',
     urls: samplerUrls,
     volume: -10,

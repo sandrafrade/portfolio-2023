@@ -1,12 +1,12 @@
 import {useRef} from 'react'
+import * as THREE from 'three'
 import {useFrame} from '@react-three/fiber'
 import {Instance} from '@react-three/drei'
-import {BoxGeometry, MeshStandardMaterial, Vector3, InstancedMesh} from 'three'
 import {useCanvasPlayer} from '@/contexts/CanvasPlayer/Consumer'
 import {notes, Note} from '@/components/Experience/MusicSheet'
 
 export type ShapeInstancePosition = {
-    position: Vector3
+    position: THREE.Vector3
     index: number
 }
 export type ShapeInstanceProps = ShapeInstancePosition & {
@@ -24,7 +24,7 @@ export default function ShapeInstance ({
     arpUp,
     reverseArp
 }: ShapeInstanceProps) {
-    const ref = useRef<InstancedMesh<BoxGeometry, MeshStandardMaterial>>(null)
+    const ref = useRef<THREE.InstancedMesh<THREE.BoxGeometry, THREE.MeshStandardMaterial>>(null)
     const {animation, sound} = useCanvasPlayer()
 
     useFrame(({clock}) => {

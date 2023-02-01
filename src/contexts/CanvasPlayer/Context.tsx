@@ -1,6 +1,6 @@
 import {createContext} from 'react'
-import {Player, Sampler} from 'tone'
-import {Color, ColorRepresentation} from 'three'
+import * as THREE from 'three'
+import * as Tone from 'tone'
 
 type Playable = {
     isPlaying: boolean
@@ -10,14 +10,14 @@ type Playable = {
 export type CanvasPlayerProps = {
     animation: Playable,
     sound: Playable & {
-        getPlayer?: () => Player | undefined,
-        getSampler?: () => Sampler | undefined,
+        getPlayer?: () => Tone.Player | undefined,
+        getSampler?: () => Tone.Sampler | undefined,
     },
     colors: {
-        black: ColorRepresentation
-        white: ColorRepresentation
-        cyan: ColorRepresentation
-        magenta: ColorRepresentation
+        black: THREE.ColorRepresentation
+        white: THREE.ColorRepresentation
+        cyan: THREE.ColorRepresentation
+        magenta: THREE.ColorRepresentation
     },
     env: {
         isMobile: boolean
@@ -35,10 +35,10 @@ export const defaultContext: CanvasPlayerProps = {
         toggle: () => { },
     },
     colors: {
-        black: new Color('#131313'),
-        white: new Color('#fbffff'),
-        cyan: new Color('#00fff0'),
-        magenta: new Color('#eb0042'),
+        black: new THREE.Color('#131313'),
+        white: new THREE.Color('#fbffff'),
+        cyan: new THREE.Color('#00fff0'),
+        magenta: new THREE.Color('#eb0042'),
     },
     env: {
         isMobile: false,

@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react'
-import {Player, PlayerOptions, Sampler, SamplerOptions, context} from 'tone'
+import * as Tone from 'tone'
 import CanvasPlayerContext, {defaultContext} from '@/contexts/CanvasPlayer/Context'
 
 export const CanvasPlayerProvider = ({
@@ -7,16 +7,16 @@ export const CanvasPlayerProvider = ({
     samplerOptions,
     children
 }: {
-    playerOptions: Partial<PlayerOptions>
-    samplerOptions: Partial<SamplerOptions>
+    playerOptions: Partial<Tone.PlayerOptions>
+    samplerOptions: Partial<Tone.SamplerOptions>
     children: React.ReactNode
 }) => {
     const [isMobile, setIsMobile] = useState(defaultContext.env.isMobile)
     const [isDebug, setIsDebug] = useState(defaultContext.env.isDebug)
     const [isAnimationPlaying, setIsAnimationPlaying] = useState(defaultContext.animation.isPlaying)
     const [isSoundPlaying, setIsSoundPlaying] = useState(defaultContext.sound.isPlaying)
-    const player = useRef<Player | undefined>()
-    const sampler = useRef<Sampler | undefined>()
+    const player = useRef<Tone.Player | undefined>()
+    const sampler = useRef<Tone.Sampler | undefined>()
 
     useEffect(() => {
         setIsMobile(window.matchMedia('(max-width: 600px)').matches)
@@ -30,16 +30,17 @@ export const CanvasPlayerProvider = ({
     const toggleSound = async () => {
         setIsSoundPlaying(!isSoundPlaying)
 
-        if (context.state !== 'running') {
-            context.resume()
+        if (Tone.context.state !== 'running') {
+            await Tone.start()
+            Tone.context.resume()
         }
 
         if (samplerOptions && !sampler.current) {
-            sampler.current = new Sampler(samplerOptions).toDestination()
+            sampler.current = new Tone.Sampler(samplerOptions).toDestination()
         }
 
         if (playerOptions && !player.current) {
-            player.current = new Player(playerOptions).toDestination()
+            player.current = new Tone.Player(playerOptions).toDestination()
             return
         }
 
@@ -58,8 +59,8 @@ export const CanvasPlayerProvider = ({
                 sound: {
                     isPlaying: isSoundPlaying,
                     toggle: toggleSound,
-                    getPlayer: (): Player | undefined => player.current,
-                    getSampler: (): Sampler | undefined => sampler.current
+                    getPlayer: (): Tone.Player | undefined => player.current,
+                    getSampler: (): Tone.Sampler | undefined => sampler.current
                 },
                 colors: {...defaultContext.colors},
                 env: {

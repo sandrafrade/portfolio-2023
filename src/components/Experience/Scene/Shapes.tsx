@@ -1,6 +1,6 @@
 import {useMemo, useState} from 'react'
+import * as THREE from 'three'
 import {Instances} from '@react-three/drei'
-import {Vector3} from 'three'
 import {useCanvasPlayer} from '@/contexts/CanvasPlayer/Consumer'
 import ShapeInstance, {ShapeInstancePosition} from '@/components/Experience/Scene/ShapeInstance'
 
@@ -34,7 +34,7 @@ export default function Shapes () {
                 }
 
                 const pos: ShapeInstancePosition = {
-                    position: new Vector3(i, 0, j),
+                    position: new THREE.Vector3(i, 0, j),
                     index: j === start ? index : -1,
                 }
 
