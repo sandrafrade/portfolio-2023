@@ -16,12 +16,12 @@
     "card": {
         "fullName": "Sandra Frade",
         "jobName": "Web Developer",
-        "jobType": "Freelance",
+        "jobType": "Front End",
         "jobLocation": "Paris"
     },
     "home": {
         "seo": {
-            "title": "Sandra Frade | Web Developer · Freelance · Paris",
+            "title": "Sandra Frade | Web Developer · Front End · Paris",
             "description": "After working 6 years as a full stack developer, I now focus on front end development : Javascript, Typescript, React.js, D3.js, Three.js, Accessiblity"
         }
     },
